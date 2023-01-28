@@ -1,0 +1,50 @@
+{
+  "homePage": {
+    "titleP1": "Get your ",
+    "titleP2": "Coffee",
+    "titleP3": "on one finger tap",
+    "popularCoffee": "Popular Coffee",
+    "nearestShops": "Nearest Coffee Shops",
+    "searchbar": "Search anything",
+    "delivery": "Delivery"
+  },
+  "detailsPage": {
+    "title": "Details",
+    "chooseSize": "Choose size",
+    "addToCart": "Add to Cart"
+  },
+  "orderPage": {
+    "title": "Place order",
+    "selected": "Selected",
+    "subtotal": "Subtotal",
+    "discount": "Discount",
+    "delivery": "Delivery",
+    "total": "Total",
+    "payNow": "Pay now"
+  },
+  "processingPage": {
+    "processing": "Your order is processing"
+  },
+  "confirmedPage": {
+    "title": "Order Confirmed!",
+    "back": "back to the homepage"
+  },
+  "nearbyPage": {
+    "title": "Nearby Shops",
+    "viewProducts": "View Products"
+  },
+  "reservePage": {
+    "coffee": "Coffee",
+    "cakes": "Cakes",
+    "reserveNow": "Reserver a table now",
+    "todaysSpecial": "Today's Special"
+  },
+  "shared": {
+    "readMore": "read more",
+    "ml": "ml",
+    "min": "min",
+    "hour": "hour",
+    "viewAll": "View All",
+    "ratings": "ratings"
+  }
+}

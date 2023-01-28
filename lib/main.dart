@@ -1,5 +1,8 @@
+import 'package:cup_coffee/core/constants/application_constants.dart';
+import 'package:cup_coffee/core/init/lang/language_managar.dart';
 import 'package:cup_coffee/core/init/notifier/provider_list.dart';
 import 'package:cup_coffee/locator.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
@@ -38,7 +41,14 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: EasyLocalization(
+        path: ApplicationConstants.langAssetPath,
+        supportedLocales: LanguageManager.instance.supportedLocales,
+        startLocale: LanguageManager.trLocale,
+        fallbackLocale: LanguageManager.enLocale,
+        useOnlyLangCode: true,
+        child: const MyHomePage(title: 'Flutter Demo Home Page'),
+      ),
     );
   }
 }

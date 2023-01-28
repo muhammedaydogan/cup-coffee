@@ -1,0 +1,50 @@
+{
+  "homePage": {
+    "titleP1": "",
+    "titleP2": "Kahve",
+    "titleP3": "niz bir tık uzağınızda",
+    "popularCoffee": "Popüler Kahveler",
+    "nearestShops": "En yakın Cafeler",
+    "searchbar": "istediğinizi arayın",
+    "delivery": "Teslim"
+  },
+  "detailsPage": {
+    "title": "Detaylar",
+    "chooseSize": "Boyut seçin",
+    "addToCart": "Sepete ekle"
+  },
+  "orderPage": {
+    "title": "Sipariş ver",
+    "selected": "Seçilen",
+    "subtotal": "Ara Toplam",
+    "discount": "İndirim",
+    "delivery": "Teslimat",
+    "total": "Toplam",
+    "payNow": "Şimdi öde"
+  },
+  "processingPage": {
+    "processing": "Siparişiniz alınıyor"
+  },
+  "confirmedPage": {
+    "title": "Sipariş Onaylandı!",
+    "back": "anasayfaya geri dön"
+  },
+  "nearbyPage": {
+    "title": "Yakındaki Cafeler",
+    "viewProducts": "Ürünleri göster"
+  },
+  "reservePage": {
+    "coffee": "Kahve",
+    "cakes": "Kekler",
+    "reserveNow": "Reserver a table now",
+    "todaysSpecial": "Bugüne özel"
+  },
+  "shared": {
+    "readMore": "daha fazla göster",
+    "ml": "ml",
+    "min": "dk",
+    "hour": "saat",
+    "viewAll": "hepsini göster",
+    "ratings": "puanlama"
+  }
+}
