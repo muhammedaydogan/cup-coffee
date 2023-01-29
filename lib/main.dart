@@ -1,4 +1,4 @@
-import 'package:cup_coffee/core/constants/application_constants.dart';
+import 'package:cup_coffee/core/constants/app/app_constants.dart';
 import 'package:cup_coffee/core/init/lang/language_managar.dart';
 import 'package:cup_coffee/core/init/notifier/provider_list.dart';
 import 'package:cup_coffee/locator.dart';
@@ -8,7 +8,7 @@ import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
 void main() {
-  setup();
+  setupLocator();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
       .then((_) {
     runApp(
