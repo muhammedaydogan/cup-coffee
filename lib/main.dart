@@ -1,13 +1,16 @@
 import 'package:cup_coffee/core/constants/app/app_constants.dart';
-import 'package:cup_coffee/core/init/lang/language_managar.dart';
+import 'package:cup_coffee/core/init/lang/language_manager.dart';
 import 'package:cup_coffee/core/init/notifier/provider_list.dart';
+import 'package:cup_coffee/core/init/notifier/theme_notifier.dart';
 import 'package:cup_coffee/locator.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
-void main() {
+void main() async {
+  await _init();
   setupLocator();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
       .then((_) {
@@ -20,36 +23,38 @@ void main() {
   });
 }
 
+Future<void> _init() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await EasyLocalization.ensureInitialized();
+  LicenseRegistry.addLicense(() async* {
+    final license = await rootBundle.loadString('google_fonts/OFL.txt');
+    yield LicenseEntryWithLineBreaks(['google_fonts'], license);
+  });
+}
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Cup Coffee',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
-      ),
-      home: EasyLocalization(
-        path: ApplicationConstants.langAssetPath,
-        supportedLocales: LanguageManager.instance.supportedLocales,
-        startLocale: LanguageManager.trLocale,
-        fallbackLocale: LanguageManager.enLocale,
-        useOnlyLangCode: true,
-        child: const MyHomePage(title: 'Flutter Demo Home Page'),
-      ),
-    );
+    return Consumer<ThemeNotifier>(builder: (context, themeNotifier, child) {
+      return MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Cup Coffee',
+        theme: themeNotifier.lightTheme,
+        darkTheme: themeNotifier.darkTheme,
+        themeMode: themeNotifier.themeMode,
+        home: EasyLocalization(
+          path: ApplicationConstants.langAssetPath,
+          supportedLocales: LanguageManager.instance.supportedLocales,
+          startLocale: LanguageManager.trLocale,
+          fallbackLocale: LanguageManager.enLocale,
+          useOnlyLangCode: true,
+          child: const MyHomePage(title: 'Flutter Demo Home Page'),
+        ),
+      );
+    });
   }
 }
 
