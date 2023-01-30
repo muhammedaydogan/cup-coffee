@@ -1,6 +1,8 @@
-import '../../constants/enum/shared_prefs_enum.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import '../../constants/enum/shared_prefs_enum.dart';
+
 
 class SecureCacheManager {
   static SecureCacheManager? _instance = SecureCacheManager._init();

@@ -1,4 +1,5 @@
 import 'package:mobx/mobx.dart';
+
 part 'home_viewmodel.g.dart';
 
 class HomeViewModel = _HomeViewModelBase with _$HomeViewModel;

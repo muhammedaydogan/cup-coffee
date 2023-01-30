@@ -1,5 +1,6 @@
-import '../../constants/enum/shared_prefs_enum.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import '../../constants/enum/shared_prefs_enum.dart';
 
 class CacheManager {
   SharedPreferences? _preferences;

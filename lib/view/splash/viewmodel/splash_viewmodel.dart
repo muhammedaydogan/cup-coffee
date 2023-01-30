@@ -1,17 +1,14 @@
+import 'package:flutter/material.dart';
+
 import '../../../core/constants/app/navigation_constants.dart';
 import '../../../core/constants/enum/shared_prefs_enum.dart';
 import '../../../core/init/cache/cache_manager.dart';
 import '../../../core/init/navigation/navigation_service.dart';
 import '../../../core/init/notifier/theme_notifier.dart';
 import '../../../locator.dart';
-import 'package:flutter/material.dart';
 
-import 'package:mobx/mobx.dart';
-part 'splash_viewmodel.g.dart';
 
-class SplashViewModel = _SplashViewModelBase with _$SplashViewModel;
-
-abstract class _SplashViewModelBase with Store {
+class SplashViewModel {
   bool isFirstTime = true;
   ThemeMode themeMode = ThemeMode.system;
 

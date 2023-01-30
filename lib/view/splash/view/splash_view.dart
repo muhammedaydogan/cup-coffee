@@ -1,8 +1,9 @@
+import 'package:flutter/material.dart';
+
 import '../../../core/constants/app/app_constants.dart';
 import '../../../core/extension/context_extension.dart';
 import '../../_product/constants/image_path_constants.dart';
 import '../viewmodel/splash_viewmodel.dart';
-import 'package:flutter/material.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
