@@ -1,4 +1,4 @@
-import 'package:cup_coffee/core/constants/enum/shared_prefs_enum.dart';
+import '../../constants/enum/shared_prefs_enum.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class CacheManager {

@@ -1,5 +1,5 @@
-import 'package:cup_coffee/core/init/notifier/theme_notifier.dart';
-import 'package:cup_coffee/locator.dart';
+import 'theme_notifier.dart';
+import '../../../locator.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
 

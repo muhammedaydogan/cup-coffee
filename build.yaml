@@ -1,0 +1,35 @@
+targets:
+  $default:
+    builders:
+      # json_serializable|json_serializable:
+      #   # This will only generate code for files
+      #   # in a "models" or "entities" folder.
+      #   enabled: true
+      #   generate_for:
+      #     - "**/model/**.dart"
+      #     - "**/model/**_model.dart"
+      #     - "lib/features/**/**/model/**_model.dart"
+      #     - "lib/features/**/model/**_model.dart"
+      #     - "lib/product/model/**.dart"
+
+      mobx_codegen|mobx_generator:
+        enabled: true
+        generate_for:
+          - "**/viewmodel/**_viewmodel.dart"
+
+      
+
+      # freezed|freezed:
+      #   # This will only generate code for files
+      #   # that end with ".f.dart".
+      #   generate_for:
+      #     - "**/**.f.dart"
+# builders:
+#   mobx_generator:
+#     target: ":store_generator"
+#     import: "package:mobx_codegen/builder.dart"
+#     builder_factories: ["storeGenerator"]
+#     build_extensions: { ".dart": [".store.g.part"] }
+#     auto_apply: dependents
+#     build_to: cache
+#     applies_builders: ["source_gen|combining_builder"]

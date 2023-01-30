@@ -1,4 +1,1 @@
-enum SharedPrefKeys{
-  isFirstLaunch,
-  reservedTable
-}
+enum SharedPrefKeys { isFirstLaunch, reservedTable, theme }

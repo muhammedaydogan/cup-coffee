@@ -9,13 +9,12 @@ class ThemeNotifier extends ChangeNotifier {
   ThemeNotifier() {
     lightTheme = ThemeData.from(
       colorScheme: ThemeData().colorScheme.copyWith(
-            primary: Color.fromARGB(255, 252, 170, 170),
-            secondary: const Color(0xFF314d45),
-            tertiary: const Color(0xffffb067),
+            primary: const Color(0xffffb067),
+            secondary: const Color(0xFF314D45),
             brightness: Brightness.light,
             error: const Color(0xFFFF2842),
           ),
-    ).copyWith();
+    ).copyWith(scaffoldBackgroundColor: Colors.white);
 
     lightTheme = lightTheme.copyWith(
       textTheme: GoogleFonts.poppinsTextTheme(lightTheme.textTheme),
@@ -23,7 +22,7 @@ class ThemeNotifier extends ChangeNotifier {
 
     darkTheme = ThemeData.from(
       colorScheme: ThemeData().colorScheme.copyWith(
-            primary: const Color(0xff13439b),
+            primary: const Color(0xffffb067),
             secondary: const Color(0xFF314D45),
             brightness: Brightness.dark,
             error: const Color(0xffff2889),

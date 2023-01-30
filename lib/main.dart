@@ -1,8 +1,11 @@
-import 'package:cup_coffee/core/constants/app/app_constants.dart';
-import 'package:cup_coffee/core/init/lang/language_manager.dart';
-import 'package:cup_coffee/core/init/notifier/provider_list.dart';
-import 'package:cup_coffee/core/init/notifier/theme_notifier.dart';
-import 'package:cup_coffee/locator.dart';
+import 'core/constants/app/app_constants.dart';
+import 'core/constants/app/navigation_constants.dart';
+import 'core/init/lang/language_manager.dart';
+import 'core/init/navigation/navigation_route.dart';
+import 'core/init/navigation/navigation_service.dart';
+import 'core/init/notifier/provider_list.dart';
+import 'core/init/notifier/theme_notifier.dart';
+import 'locator.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +20,14 @@ void main() async {
     runApp(
       MultiProvider(
         providers: [...ApplicationProvider.instance.dependItems],
-        child: const MyApp(),
+        child: EasyLocalization(
+          path: ApplicationConstants.langAssetPath,
+          supportedLocales: LanguageManager.instance.supportedLocales,
+          startLocale: LanguageManager.trLocale,
+          fallbackLocale: LanguageManager.enLocale,
+          useOnlyLangCode: true,
+          child: const MyApp(),
+        ),
       ),
     );
   });
@@ -45,14 +55,9 @@ class MyApp extends StatelessWidget {
         theme: themeNotifier.lightTheme,
         darkTheme: themeNotifier.darkTheme,
         themeMode: themeNotifier.themeMode,
-        home: EasyLocalization(
-          path: ApplicationConstants.langAssetPath,
-          supportedLocales: LanguageManager.instance.supportedLocales,
-          startLocale: LanguageManager.trLocale,
-          fallbackLocale: LanguageManager.enLocale,
-          useOnlyLangCode: true,
-          child: const MyHomePage(title: 'Flutter Demo Home Page'),
-        ),
+        onGenerateRoute: NavigationRoute.instance.generateRoute,
+        navigatorKey: NavigationService.instance.globalNavigatorKey,
+        initialRoute: NavigationConstants.splash,
       );
     });
   }

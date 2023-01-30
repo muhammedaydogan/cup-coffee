@@ -1,4 +1,4 @@
-import 'package:cup_coffee/core/init/notifier/theme_notifier.dart';
+import 'core/init/notifier/theme_notifier.dart';
 import 'package:get_it/get_it.dart';
 
 import 'core/init/cache/cache_manager.dart';
