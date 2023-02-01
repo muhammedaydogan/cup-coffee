@@ -1,4 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -11,11 +12,15 @@ import 'core/init/navigation/navigation_route.dart';
 import 'core/init/navigation/navigation_service.dart';
 import 'core/init/notifier/provider_list.dart';
 import 'core/init/notifier/theme_notifier.dart';
+import 'firebase_options.dart';
 import 'locator.dart';
 
 void main() async {
   await _init();
   setupLocator();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
       .then((_) {
     runApp(
@@ -24,8 +29,8 @@ void main() async {
         child: EasyLocalization(
           path: ApplicationConstants.langAssetPath,
           supportedLocales: LanguageManager.instance.supportedLocales,
-          startLocale: LanguageManager.trLocale,
-          fallbackLocale: LanguageManager.enLocale,
+          startLocale: LanguageManager.enLocale,
+          fallbackLocale: LanguageManager.trLocale,
           useOnlyLangCode: true,
           child: const MyApp(),
         ),
@@ -56,6 +61,7 @@ class MyApp extends StatelessWidget {
         theme: themeNotifier.lightTheme,
         darkTheme: themeNotifier.darkTheme,
         themeMode: themeNotifier.themeMode,
+        localizationsDelegates: context.localizationDelegates,
         onGenerateRoute: NavigationRoute.instance.generateRoute,
         navigatorKey: NavigationService.instance.globalNavigatorKey,
         initialRoute: NavigationConstants.splash,

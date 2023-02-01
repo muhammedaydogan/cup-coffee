@@ -20,6 +20,18 @@ class ThemeNotifier extends ChangeNotifier {
       textTheme: GoogleFonts.poppinsTextTheme(lightTheme.textTheme),
     );
 
+    lightTheme = lightTheme.copyWith(
+      textTheme: lightTheme.textTheme.copyWith(
+        titleLarge: lightTheme.textTheme.titleLarge?.copyWith(
+            color: Colors.black, fontSize: 28, fontWeight: FontWeight.w600),
+        titleMedium: lightTheme.textTheme.titleMedium?.copyWith(
+            color: Colors.black, fontSize: 24, fontWeight: FontWeight.w600),
+        titleSmall: lightTheme.textTheme.titleLarge?.copyWith(
+            color: Colors.black, fontSize: 20, fontWeight: FontWeight.w600),
+      ),
+    );
+    // TODO: Also, make darktheme for this
+
     darkTheme = ThemeData.from(
       colorScheme: ThemeData().colorScheme.copyWith(
             primary: const Color(0xffffb067),
@@ -27,11 +39,11 @@ class ThemeNotifier extends ChangeNotifier {
             brightness: Brightness.dark,
             error: const Color(0xffff2889),
           ),
-    );
+    ).copyWith(scaffoldBackgroundColor: Colors.white);
 
     darkTheme = darkTheme.copyWith(
         textTheme: GoogleFonts.poppinsTextTheme(lightTheme.textTheme));
-    // darkTheme = lightTheme.copyWith(
+    // darkTheme = darkTheme.copyWith(
     //     textTheme: lightTheme.textTheme.copyWith(
     //         headlineMedium: lightTheme.textTheme.headlineMedium!
     //             .copyWith(color: Colors.lightGreenAccent)));
