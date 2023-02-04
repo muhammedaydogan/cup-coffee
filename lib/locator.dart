@@ -11,5 +11,5 @@ void setupLocator() {
   locator.registerLazySingleton(() => CacheManager.instance);
   locator.registerLazySingleton(() => SecureCacheManager.instance);
   locator.registerLazySingleton(() => ThemeNotifier());
-  locator.registerLazySingleton(() => FirebaseManager.instance);
+  // locator.registerLazySingleton(() => FirebaseManager.instance);
 }

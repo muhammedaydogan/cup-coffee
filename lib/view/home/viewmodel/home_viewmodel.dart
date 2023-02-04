@@ -30,8 +30,6 @@ abstract class _HomeViewModelBase with Store {
 
   @action
   void getCoffees() async {
-    await firestore.disableNetwork();
-    await firestore.enableNetwork();
     Logger logger = Logger();
     logger.d("sending request");
     try {
