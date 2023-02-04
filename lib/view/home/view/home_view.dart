@@ -1,8 +1,5 @@
-import 'package:cup_coffee/view/_product/widgets/shop_cards.dart';
-
+import '../../_product/widgets/shop_cards.dart';
 import '../../_product/widgets/coffee_cards.dart';
-import 'package:logger/logger.dart';
-
 import '../../../core/extension/context_extension.dart';
 import '../../../core/init/lang/locale_keys.g.dart';
 import '../../_product/constants/image_path_constants.dart';
@@ -21,7 +18,6 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   HomeViewModel viewModel = HomeViewModel();
-  Logger logger = Logger();
 
   EdgeInsets margin(BuildContext context) => EdgeInsets.only(
         left: context.veryLowValue,
@@ -47,11 +43,13 @@ class _HomeViewState extends State<HomeView> {
   }
 
   @override
+  void initState() {
+    super.initState();
+    viewModel.init();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    if (sth == false) {
-      sth = true;
-      viewModel.getCoffees();
-    }
     return Scaffold(
       body: SafeArea(
         child: Padding(

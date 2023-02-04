@@ -9,6 +9,8 @@ class HomeViewModel = _HomeViewModelBase with _$HomeViewModel;
 abstract class _HomeViewModelBase with Store {
   FirebaseFirestore firestore = FirebaseFirestore.instance;
 
+  Logger logger = Logger();
+
   @observable
   int value = 0;
 
@@ -21,24 +23,36 @@ abstract class _HomeViewModelBase with Store {
   }
 
   @action
+  void init() {
+    getCoffees();
+    getShops();
+  }
+
+  @action
   void getCoffees() async {
-    await FirebaseFirestore.instance.disableNetwork();
-    await FirebaseFirestore.instance.enableNetwork();
+    await firestore.disableNetwork();
+    await firestore.enableNetwork();
     Logger logger = Logger();
     logger.d("sending request");
     try {
-      CollectionReference coffeeRef = firestore.collection("coffee");
-      logger.d(coffeeRef.id);
-      DocumentSnapshot someCoffee = await coffeeRef.doc("latte").get();
-      logger.d(someCoffee.data().toString());
-      QuerySnapshot coffees = await coffeeRef.snapshots().last;
-      logger.d(coffees.docs.isEmpty);
+      QuerySnapshot coffeeRef = await firestore.collection("coffee").get();
+      for (var element in coffeeRef.docs) {
+        logger.d((element.data() as Map<String, dynamic>)['name'].toString());
+      }
     } on Exception catch (e) {
       logger.e("error ${e.toString()}");
     }
   }
 
   void onTapLikeCoffee() {
-    Logger().d(123);
+    logger.d(123);
+  }
+
+  @action
+  void getShops() async {
+    QuerySnapshot shopsRef = await firestore.collection("shops").get();
+    logger.d(shopsRef.size);
+    var shop1 = shopsRef.docs.length;
+    logger.d(shop1);
   }
 }
