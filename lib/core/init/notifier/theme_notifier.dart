@@ -39,14 +39,21 @@ class ThemeNotifier extends ChangeNotifier {
             brightness: Brightness.dark,
             error: const Color(0xffff2889),
           ),
-    ).copyWith(scaffoldBackgroundColor: Colors.white);
+    ).copyWith(scaffoldBackgroundColor: Colors.white10);
 
     darkTheme = darkTheme.copyWith(
-        textTheme: GoogleFonts.poppinsTextTheme(lightTheme.textTheme));
-    // darkTheme = darkTheme.copyWith(
-    //     textTheme: lightTheme.textTheme.copyWith(
-    //         headlineMedium: lightTheme.textTheme.headlineMedium!
-    //             .copyWith(color: Colors.lightGreenAccent)));
+        textTheme: GoogleFonts.poppinsTextTheme(darkTheme.textTheme));
+
+    darkTheme = darkTheme.copyWith(
+      textTheme: darkTheme.textTheme.copyWith(
+        titleLarge: darkTheme.textTheme.titleLarge?.copyWith(
+            color: Colors.white, fontSize: 28, fontWeight: FontWeight.w600),
+        titleMedium: darkTheme.textTheme.titleMedium?.copyWith(
+            color: Colors.white, fontSize: 22, fontWeight: FontWeight.w600),
+        titleSmall: darkTheme.textTheme.titleLarge?.copyWith(
+            color: Colors.white, fontSize: 18, fontWeight: FontWeight.w600),
+      ),
+    );
 
     themeMode = ThemeMode.system;
   }

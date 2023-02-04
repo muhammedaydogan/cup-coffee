@@ -2,7 +2,6 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
-
 extension ContextExtension on BuildContext {
   MediaQueryData get mediaQuery => MediaQuery.of(this);
 
@@ -70,13 +69,14 @@ extension PaddingExtensionSymetric on BuildContext {
 extension RadiusExtension on BuildContext {
   Radius get lowRadius => Radius.circular(width * 0.02);
   Radius get normalRadius => Radius.circular(width * 0.04);
-  Radius get mediumRadius => Radius.circular(width * 0.08);
-  Radius get highRadius => Radius.circular(width * 0.1);
+  Radius get veryNormalRadius => Radius.circular(width * 0.06);
+  Radius get highRadius => Radius.circular(width * 0.08);
+  Radius get veryHighRadius => Radius.circular(width * 0.1);
 }
 
-extension PageExtension on BuildContext {
-  Color get randomColor => Colors.primaries[Random().nextInt(17)];
-}
+// extension PageExtension on BuildContext {
+//   Color get randomColor => Colors.primaries[Random().nextInt(17)];
+// }
 
 extension DurationExtension on BuildContext {
   Duration get lowDuration => const Duration(milliseconds: 500);
